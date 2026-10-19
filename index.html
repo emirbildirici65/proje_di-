@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AURA DENTAL & FACIAL CLINIQUE | Antalya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+:root{--gold:#C9A24B;--gold2:#E8D3A0;--ivory:#F6EFDD;--ink:#0E0D0B;--sea:#1B3A3F}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--ink);color:var(--ivory);font-family:'Plus Jakarta Sans',system-ui,sans-serif;overflow-x:hidden}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.gold{color:var(--gold)}
+#pre{position:fixed;inset:0;z-index:100;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+#pre .bar{width:min(280px,70vw);height:1px;background:rgba(201,162,75,.25);margin-top:28px;overflow:hidden}
+#pre .bar i{display:block;height:100%;width:0;background:var(--gold)}
+#pre .breath{animation:br 3s ease-in-out infinite}
+@keyframes br{50%{opacity:.55;letter-spacing:.42em}}
+#hero{height:450vh;position:relative}
+#stage{position:sticky;top:0;height:100vh;height:100dvh;width:100%;overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;background:#0a1416}
+#stage:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%,transparent 60%,rgba(0,0,0,.45));pointer-events:none}
+.card{position:absolute;left:50%;top:50%;width:min(92vw,720px);transform:translate(-50%,-50%);opacity:0;visibility:hidden;z-index:5}
+.glass{backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.1);border-radius:1.5rem;box-shadow:0 25px 50px -12px rgba(0,0,0,.6)}
+.kick{display:inline-block;font-size:11px;letter-spacing:.28em;color:var(--gold);border:1px solid rgba(201,162,75,.5);border-radius:99px;padding:6px 14px;margin-bottom:16px}
+.card h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2rem,5.5vw,3.6rem);line-height:1.05;color:var(--ivory);margin:0 0 14px}
+.card p{font-weight:300;line-height:1.7;color:rgba(246,239,221,.88);margin:0;max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#E8D3A0,#C9A24B);color:#1a1405;font-weight:600;border-radius:99px;padding:14px 26px;text-decoration:none;transition:transform .2s,box-shadow .2s;border:0;cursor:pointer;font-family:inherit;font-size:15px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,162,75,.4)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+#hdr{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 12px;background:linear-gradient(180deg,rgba(0,0,0,.65),transparent)}
+.live{width:8px;height:8px;border-radius:50%;background:#2ee66b;box-shadow:0 0 0 0 rgba(46,230,107,.7);animation:pl 1.8s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 10px rgba(46,230,107,0)}100%{box-shadow:0 0 0 0 rgba(46,230,107,0)}}
+#wa{position:fixed;left:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;animation:wp 2s infinite;box-shadow:0 8px 24px rgba(37,211,102,.5)}
+@keyframes wp{70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+#awwa{position:fixed;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);z-index:60;max-width:min(300px,62vw);padding:12px 14px;text-decoration:none;color:var(--ivory);font-size:11px;line-height:1.45;border-radius:1rem;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(20,18,12,.6);border:1px solid var(--gold);box-shadow:0 0 18px rgba(201,162,75,.45),inset 0 0 12px rgba(201,162,75,.12);transition:transform .2s}
+#awwa:hover{transform:translateY(-3px)}
+#awwa b{display:block;color:var(--gold2);font-size:11.5px;margin-bottom:3px}
+section.flow{position:relative;padding:96px 20px;max-width:1100px;margin:0 auto}
+.opt{cursor:pointer;border:1px solid rgba(255,255,255,.14);border-radius:1rem;padding:16px;text-align:left;background:rgba(255,255,255,.03);color:inherit;font-family:inherit;transition:border-color .2s,background .2s}
+.opt[aria-pressed=true]{border-color:var(--gold);background:rgba(201,162,75,.14)}
+.step{border-left:1px solid rgba(201,162,75,.5);padding:4px 0 28px 24px;position:relative}
+.step:before{content:"";position:absolute;left:-5px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.badge{border:1px solid rgba(201,162,75,.35);border-radius:1rem;padding:22px;background:linear-gradient(160deg,rgba(201,162,75,.1),transparent)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div id="pre" role="status" aria-live="polite">
+  <div class="serif breath" style="font-size:clamp(1.5rem,5vw,2.6rem);letter-spacing:.3em;color:var(--gold2)">AURA DENTAL &amp; FACIAL CLINIQUE</div>
+  <div style="margin-top:18px;font-weight:300;font-size:14px;opacity:.8">Akdeniz Işıltısıyla Yeni Gülüşünüz Hazırlanıyor... <span id="pct">%0</span></div>
+  <div class="bar"><i id="barfill"></i></div>
+</div>
+
+<header id="hdr">
+  <div class="flex items-baseline gap-2">
+    <span class="serif" style="font-size:1.9rem;letter-spacing:.32em;color:var(--ivory)">AURA</span>
+    <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block"></span>
+    <span style="font-size:10px;letter-spacing:.3em;color:var(--gold2)">CLINIQUE</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <span class="hidden md:flex items-center gap-2" style="font-size:12px"><i class="live"></i>Canlı Konsültasyon Açık</span>
+    <a class="btn" style="padding:9px 16px;font-size:13px" href="tel:05449210748" id="hdrwa" aria-label="WhatsApp Danışma 05449210748">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.500-3.900-4.700-4.100-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .5l-.4.600c-.2.200-.3.300-.1.600.7 1.100 1.500 1.900 2.600 2.400.3.200.5.100.7-.1l.8-1c.2-.3.400-.2.700-.1l1.900.9c.3.100.5.200.5.400.1.200.1.800-.1 1.400z"/></svg>
+      WhatsApp Danışma</a>
+  </div>
+</header>
+
+<a id="wa" href="https://wa.me/905449210748" target="_blank" rel="noopener" aria-label="WhatsApp ile iletişim">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.500-3.900-4.700-4.100-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .5l-.4.600c-.2.200-.3.300-.1.600.7 1.100 1.500 1.900 2.600 2.400.3.200.5.100.7-.1l.8-1c.2-.3.400-.2.700-.1l1.900.9c.3.100.5.200.5.400.1.200.1.800-.1 1.400z"/></svg>
+</a>
+
+<a id="awwa" href="https://wa.me/905449210748?text=Merhaba,%20hazırladığınız%20diş%20kliniği%20demo%20web%20sitesini%20inceledim.%20Kendi%20klini%C4%9Fimiz%20i%C3%A7in%20web%20tasar%C4%B1m%20hizmeti%20almak%20istiyorum." target="_blank" rel="noopener">
+  <b>⚡ Bu Web Sitesi AWWA MEDYA Tarafından Tasarlanmıştır.</b>
+  Kliniğinize Özel Yeni Nesil 3D Web Siteleri İçin Tıklayın
+</a>
+
+<main>
+<div id="hero">
+  <div id="stage">
+    <canvas id="cv"></canvas>
+
+    <div class="card glass p-6 md:p-10" id="c1">
+      <span class="kick">ANTALYA • GÜLÜŞ MİMARİSİ</span>
+      <h2>Burası Bir Klinik Değil. Yeni Bir Başlangıç.</h2>
+      <p>Akdeniz'in dinginliğiyle harmanlanan, klinik fobisini unutturan 7 yıldızlı bir estetik ve konfor deneyimi.</p>
+    </div>
+
+    <div class="card glass p-6 md:p-10" id="c2">
+      <span class="kick">KİŞİYE ÖZEL İZOLASYON</span>
+      <h2>Tam Mahremiyet. Sıfır Tedirginlik.</h2>
+      <p>Ses yalıtımlı VIP süitler, panoramik Akdeniz manzarası ve korkutucu tıbbi kablolardan arındırılmış biyo-ergonomik lounge ünitesi.</p>
+    </div>
+
+    <div class="card glass p-6 md:p-10" id="c3">
+      <span class="kick">DİJİTAL ESTETİK</span>
+      <h2>Yapay Zeka Destekli 3D Gülüş Tasarımı.</h2>
+      <ul style="list-style:none;padding:0;margin:0;display:grid;gap:10px;color:var(--gold2)">
+        <li>✦ Tek Seansta Dijital Tarama</li>
+        <li>✦ Biyouyumlu Doğal Zirkonyum &amp; E-Max</li>
+        <li>✦ Ömür Boyu Uluslararası Garanti</li>
+      </ul>
+    </div>
+
+    <div class="card glass p-6 md:p-10" id="c4">
+      <h2>Gülüşünüzü Şansa Değil, Uzman Ellere Bırakın.</h2>
+      <p style="margin-bottom:22px">Tedavi sürecinizi 5 yıldızlı bir Akdeniz tatiliyle birleştirin. Ücretsiz dijital simülasyon ve ön muayene için hemen yazın.</p>
+      <a class="btn" target="_blank" rel="noopener" href="https://wa.me/905449210748?text=Merhaba,%20Aura%20Clinique%20web%20sitesinden%20ula%C5%9F%C4%B1yorum.%20G%C3%BCl%C3%BC%C5%9F%20tasar%C4%B1m%C4%B1%20ve%20tedavi%20plan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">WhatsApp İle Ön Teşhis &amp; Fiyat Planı Al</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modül A -->
+<section class="flow" id="konfig">
+  <h2 class="serif" style="font-size:clamp(2rem,5vw,3.2rem);margin:0 0 8px">VIP Tedavi &amp; Tatil Paketinizi Oluşturun</h2>
+  <p style="opacity:.75;margin:0 0 36px;font-weight:300">İki seçim yapın, paket özetiniz anında hazırlansın.</p>
+  <div class="glass p-6 md:p-10" style="background:rgba(255,255,255,.03)">
+    <h3 class="serif" style="font-size:1.5rem;margin:0 0 14px;color:var(--gold2)">1. Tedavi seçimi</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="tr">
+      <button class="opt" aria-pressed="true" data-v="Hollywood Smile">Hollywood Smile</button>
+      <button class="opt" aria-pressed="false" data-v="Zirkonyum Kaplama">Zirkonyum Kaplama</button>
+      <button class="opt" aria-pressed="false" data-v="Dental İmplant">Dental İmplant</button>
+      <button class="opt" aria-pressed="false" data-v="All-On-4">All-On-4</button>
+    </div>
+    <h3 class="serif" style="font-size:1.5rem;margin:28px 0 14px;color:var(--gold2)">2. Konaklama paketi</h3>
+    <div class="grid gap-3" id="st">
+      <button class="opt" aria-pressed="true" data-v="5 Yıldızlı Sahil Resort Oteli + Özel Şoförlü VIP Vito Transfer">5 Yıldızlı Sahil Resort Oteli + Özel Şoförlü VIP Vito Transfer</button>
+    </div>
+    <div id="sum" class="mt-8 p-5" style="border:1px solid rgba(201,162,75,.45);border-radius:1rem;background:rgba(201,162,75,.08);line-height:1.9" aria-live="polite"></div>
+    <a id="cfgwa" class="btn mt-6" target="_blank" rel="noopener" href="#">Bu Paketi WhatsApp'a Aktar ve Özel Teklif İste</a>
+  </div>
+</section>
+
+<!-- Modül B -->
+<section class="flow" id="surec">
+  <h2 class="serif" style="font-size:clamp(2rem,5vw,3.2rem);margin:0 0 36px">Neden Antalya? 4 Adımda Kusursuz Süreç</h2>
+  <div style="margin-left:6px">
+    <div class="step"><h3 class="serif" style="font-size:1.5rem;margin:0 0 4px;color:var(--gold2)">Dijital Röntgen &amp; Fotoğraf Analizi</h3><p style="margin:0;opacity:.8;font-weight:300">Çevrimiçi olarak, evinizden ayrılmadan.</p></div>
+    <div class="step"><h3 class="serif" style="font-size:1.5rem;margin:0 0 4px;color:var(--gold2)">Antalya Havalimanı VIP Karşılama &amp; Otele Yerleşme</h3><p style="margin:0;opacity:.8;font-weight:300">Kapıda karşılanır, doğrudan otelinize geçersiniz.</p></div>
+    <div class="step"><h3 class="serif" style="font-size:1.5rem;margin:0 0 4px;color:var(--gold2)">Özel Süitte Ağrısız Tedavi &amp; Dijital Prova</h3><p style="margin:0;opacity:.8;font-weight:300">Tedavi öncesinde yeni gülüşünüzü ekranda görürsünüz.</p></div>
+    <div class="step" style="padding-bottom:0"><h3 class="serif" style="font-size:1.5rem;margin:0 0 4px;color:var(--gold2)">Yeni Gülüşünüzle Akdeniz Tatili ve Güvenle Ülkenize Dönüş</h3><p style="margin:0;opacity:.8;font-weight:300">Kalan günlerde tatilin tadını çıkarın.</p></div>
+  </div>
+</section>
+
+<!-- Modül C -->
+<section class="flow" id="guven">
+  <h2 class="serif" style="font-size:clamp(2rem,5vw,3.2rem);margin:0 0 36px">Hasta Güvenliği &amp; Akreditasyon</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="badge"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="1.5"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg><p style="margin:12px 0 0">CE Belgeli İsviçre/Alman Malzemeler</p></div>
+    <div class="badge"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="1.5"><circle cx="12" cy="9" r="5"/><path d="M8.500 13.500L7 21l5-3 5 3-1.500-7.500"/></svg><p style="margin:12px 0 0">Türk Dişhekimleri Birliği Onayı</p></div>
+    <div class="badge"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><p style="margin:12px 0 0">Sağlık Turizmi Yetki Belgesi</p></div>
+    <div class="badge"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="1.5"><circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c0-3.500 3-6 6.500-6s6.500 2.500 6.500 6M17 6l1 2 2 .3-1.500 1.500.4 2L17 10.800 15.100 11.800l.4-2L14 8.300l2-.3z"/></svg><p style="margin:12px 0 0">15+ Yıl Deneyimli Uzman Kadro</p></div>
+  </div>
+  <p class="serif" style="text-align:center;margin:80px 0 40px;font-size:1.3rem;color:var(--gold2);letter-spacing:.2em">AURA DENTAL &amp; FACIAL CLINIQUE • ANTALYA • ALANYA</p>
+</section>
+</main>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const FRAMES=150;
+const currentFrame=(i)=>`frame/ezgif-frame-${i.toString().padStart(3,'0')}.webp`;
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const imgs=new Array(FRAMES+1);let loaded=0,cur=1,dpr=Math.min(window.devicePixelRatio||1,2);
+
+function drawImageProp(img,x,y,w,h){
+  if(!img||!img.naturalWidth)return;
+  const iw=img.naturalWidth,ih=img.naturalHeight,r=Math.min(w/iw,h/ih);
+  let nw=iw*r,nh=ih*r,ar=1;
+  if(nw<w)ar=w/nw;
+  if(Math.abs(ar-1)<1e-14&&nh<h)ar=h/nh;
+  nw*=ar;nh*=ar;
+  const cw=iw/(nw/w),ch=ih/(nh/h);
+  const cx=Math.max(0,Math.min((iw-cw)/2,iw)),cy=Math.max(0,Math.min((ih-ch)/2,ih));
+  ctx.drawImage(img,cx,cy,Math.min(cw,iw),Math.min(ch,ih),x,y,w,h);
+}
+function render(){
+  ctx.clearRect(0,0,cv.width,cv.height);
+  drawImageProp(imgs[cur],0,0,cv.width,cv.height);
+}
+function resize(){
+  dpr=Math.min(window.devicePixelRatio||1,2);
+  cv.width=Math.round(window.innerWidth*dpr);
+  cv.height=Math.round(window.innerHeight*dpr);
+  render();
+}
+window.addEventListener('resize',resize);resize();
+
+const pct=document.getElementById('pct'),fill=document.getElementById('barfill');
+function done(){
+  gsap.to('#pre',{opacity:0,duration:1.2,ease:'power2.inOut',onComplete:()=>{document.getElementById('pre').style.display='none'}});
+  render();
+}
+function onLoad(){
+  loaded++;
+  const p=Math.round(loaded/FRAMES*100);
+  pct.textContent='%'+p;fill.style.width=p+'%';
+  if(loaded===FRAMES)setTimeout(done,350);
+}
+for(let i=1;i<=FRAMES;i++){
+  const im=new Image();
+  im.onload=()=>{if(i===1)render();onLoad()};
+  im.onerror=onLoad;
+  im.src=currentFrame(i);
+  imgs[i]=im;
+}
+
+// Scroll-driven frame
+const state={f:1};
+gsap.to(state,{f:FRAMES,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom bottom',scrub:0.6},
+  onUpdate:()=>{const n=Math.max(1,Math.min(FRAMES,Math.round(state.f)));if(n!==cur){cur=n;requestAnimationFrame(render)}}});
+
+// Hero cards (percent of 450vh scroll)
+const windows=[['#c1',5,25],['#c2',35,60],['#c3',70,88],['#c4',92,100]];
+const tl=gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom bottom',scrub:true}});
+windows.forEach(([sel,a,b])=>{
+  const span=b-a,fade=Math.min(4,span/4);
+  tl.set(sel,{visibility:'visible'},a)
+    .fromTo(sel,{opacity:0,y:40,xPercent:-50,yPercent:-50},{opacity:1,y:0,duration:fade,ease:'power2.out'},a)
+    .to(sel,{opacity:1,duration:span-2*fade},a+fade)
+    .to(sel,{opacity:sel==='#c4'?1:0,y:sel==='#c4'?0:-40,duration:fade,ease:'power2.in'},b-fade);
+  if(sel!=='#c4')tl.set(sel,{visibility:'hidden'},b);
+});
+tl.set({},{},100);
+tl.eventCallback('onUpdate',null);
+
+// Konfigüratör
+const WA='905449210748';
+let tr='Hollywood Smile',st='5 Yıldızlı Sahil Resort Oteli + Özel Şoförlü VIP Vito Transfer';
+function upd(){
+  document.getElementById('sum').innerHTML=
+   `<b class="gold">Seçiminiz:</b> ${tr} • ${st}<br>Tahmini Tedavi Süresi: 5-7 Gün | İyileşme Süresi: Hızlı<br>Dahil Olanlar: Röntgen, Otel, Transfer, VIP Asistan`;
+  const msg=`Merhaba, Aura Clinique web sitesinden ulaşıyorum. Tedavi: ${tr}. Konaklama: ${st}. Tahmini süre 5-7 gün. Bu paket için özel teklif almak istiyorum.`;
+  document.getElementById('cfgwa').href=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+}
+function bind(id,set){
+  const box=document.getElementById(id);
+  box.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+    box.querySelectorAll('.opt').forEach(x=>x.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');set(b.dataset.v);upd();
+  }));
+}
+bind('tr',v=>tr=v);bind('st',v=>st=v);upd();
+
+// Header WhatsApp (05449210748)
+document.getElementById('hdrwa').href='https://wa.me/'+WA;
+document.getElementById('hdrwa').target='_blank';
+</script>
+</body>
+</html>
